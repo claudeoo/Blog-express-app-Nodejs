@@ -1,0 +1,43 @@
+extends layout/base.pug
+
+
+
+block content
+    body(style="padding:100px;")
+        h1(align="center")
+            span(class="badge badge-secondary") Detail des articles
+        br
+        div(class="shadow-lg p-3 mb-5 bg-secondary rounded")
+            div(class="card-header bg-warning mb-1")
+                h4= article.titre
+        div(class="card-body bg-secondary")
+                p
+                    em publié le #{article.date_publication} par #{article.nom_auteur}
+
+                p= article.texte
+
+                div(class="alert alert-warning")
+                    h5( style="font-weight:600; text-align: center; font-size:24px; text-decoration:underline; color: rgb(27, 19, 14);") commentaires (#{commentaires.length})
+
+                br
+
+                form(method="post")
+                    div(class="form-group")
+                        label(for="email") Votre adresse électronique
+                        input(type="email" name="email" placeholder="mon-addresse@mail.com" class="form-control" required)
+                    div(class="form-group")
+                        textarea(name="texte", cols="30", rows="5" id="texte" placeholder="aujouter un commentaire public" class="form-control")
+                    div(class="form-group")
+                        button(type="submit" class="btn btn-warning") valider
+
+
+                each commentaire  in commentaires
+                    div
+                        
+                        p(style="font-family:cursive") par #{commentaire.email} le #{commentaire.date_creation}
+                        div(class="alert alert-warning")
+                            p= commentaire.texte
+                        hr
+
+
+    

@@ -1,0 +1,64 @@
+extends layout/base.pug
+
+block content
+    h1(class="display-4") Acceuil
+    hr
+    h3 Bonjour 
+        span(class="badge badge-secondary") #[em #{userName}]          
+    
+
+    
+    a(href="/hello/" + userName + "/15")
+        p(class="text-center") lien vers hello
+    
+    
+    //- 
+        COMMENTAIRE
+
+
+        
+    div(class="alert alert-dark" role="alert")
+        ul
+            - for (index in fruitList)
+                li #{fruitList[index]}
+            
+    div(class="alert alert-dark" role="alert")
+        table(class="table table-1")
+            tr
+                td(class="display-4") id
+                td(class="display-4") nom
+                td(class="display-4") psuedo
+
+            tr
+                td  300 
+                td rondo 
+                td numbanine
+            each person in personList
+                tr
+                    td= person.id 
+                    td= person.nom
+                    td= person.prenom
+    br
+        
+
+    div(class="alert alert-dark" role="alert")
+        table(class="table table-l ")
+            thead
+                tr
+                    th titre
+                    th rubriques
+                    th auteurs
+            
+                each article in articleList
+                    tr
+                        td
+                            a(href="/articles/"+ article.id)  #{article.titre}
+                        td= article.rubrique
+                        td= article.nom_auteur
+          
+    
+        
+            
+    
+    
+                

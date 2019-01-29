@@ -1,0 +1,24 @@
+extends layout/base.pug
+
+block content
+
+    if error
+        div(class="alert alert-danger")= error
+
+    form(method="post")
+        div(class="from-group")
+        div(class="jumbotron bg-secondary")
+            h1(class="display 2") login (connexion)
+            div(class="jumbotron bg-light")
+               
+                label(for="prenom") email
+                input(type="text" name="email" id="email" class="form-control" placeholder="email")
+                br
+                label(for="prenom") mot de passe
+                input(type="password" name="mot_de_passe" id="mot_de_passe" class="form-control" placeholder="password")
+                
+                hr(class="my-4")
+        
+                button(class="btn btn-primary") valider
+            
+            
